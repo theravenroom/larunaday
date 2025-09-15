@@ -11,17 +11,28 @@
       color: #4a375a;
       text-align: center;
     }
-    header {
-      padding: 50px 20px;
+    .page {
+      display: none;
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: 0 auto;
     }
-    header h1 {
-      font-size: 2.5em;
+    .page.active {
+      display: block;
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2 {
       margin-bottom: 20px;
     }
     nav {
       display: flex;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
     nav button {
       padding: 12px 24px;
@@ -35,20 +46,6 @@
     }
     nav button:hover {
       background: #b184d7;
-    }
-    section {
-      display: none;
-      padding: 40px 20px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    section.active {
-      display: block;
-      animation: fadeIn 0.6s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
     .counter {
       font-size: 2em;
@@ -68,6 +65,23 @@
     }
     .gallery img:hover {
       transform: scale(1.05);
+    }
+    .menu-img {
+      max-width: 300px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+    }
+    .back-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #c8a2e0;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .back-btn:hover {
+      background: #b184d7;
     }
     /* Modal */
     .modal {
@@ -91,17 +105,19 @@
   </style>
 </head>
 <body>
-  <header>
+  <!-- Homepage -->
+  <div id="home" class="page active">
     <h1>Happy Birthday, My Love 💜</h1>
     <nav>
       <button onclick="showPage('letter')">💌 Letter</button>
       <button onclick="showPage('counter')">⏳ Counter</button>
       <button onclick="showPage('gallery')">📸 Gallery</button>
     </nav>
-  </header>
+  </div>
 
   <!-- Letter -->
-  <section id="letter" class="active">
+  <div id="letter" class="page">
+    <img src="https://via.placeholder.com/300x200?text=Letter+Image" alt="Letter" class="menu-img">
     <h2>A Letter for You</h2>
     <p>
       My dearest Laruna,  
@@ -112,17 +128,21 @@
       Forever yours,  
       [Your Name]
     </p>
-  </section>
+    <button class="back-btn" onclick="showPage('home')">← Back</button>
+  </div>
 
   <!-- Counter -->
-  <section id="counter">
+  <div id="counter" class="page">
+    <img src="https://via.placeholder.com/300x200?text=Counter+Image" alt="Counter" class="menu-img">
     <h2>Since We First Dated</h2>
     <div class="counter" id="counterDisplay"></div>
     <p>...and counting 💜</p>
-  </section>
+    <button class="back-btn" onclick="showPage('home')">← Back</button>
+  </div>
 
   <!-- Gallery -->
-  <section id="gallery">
+  <div id="gallery" class="page">
+    <img src="https://via.placeholder.com/300x200?text=Gallery+Image" alt="Gallery" class="menu-img">
     <h2>Our Memories</h2>
     <div class="gallery">
       <img src="https://via.placeholder.com/300x200?text=Memory+1" alt="Memory 1" onclick="openModal(this.src)">
@@ -130,7 +150,8 @@
       <img src="https://via.placeholder.com/300x200?text=Memory+3" alt="Memory 3" onclick="openModal(this.src)">
       <img src="https://via.placeholder.com/300x200?text=Memory+4" alt="Memory 4" onclick="openModal(this.src)">
     </div>
-  </section>
+    <button class="back-btn" onclick="showPage('home')">← Back</button>
+  </div>
 
   <!-- Modal -->
   <div id="modal" class="modal" onclick="closeModal()">
@@ -140,7 +161,7 @@
   <script>
     // Switch pages
     function showPage(id) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.querySelectorAll(".page").forEach(sec => sec.classList.remove("active"));
       document.getElementById(id).classList.add("active");
     }
 
