@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 💜</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Home -->
+  <section id="home" class="page active">
+    <h1>Happy Birthday, My Love 💜</h1>
+    <div class="menu">
+      <button onclick="showPage('letter')">💌 Letter</button>
+      <button onclick="showPage('counter')">⏳ Counter</button>
+      <button onclick="showPage('gallery')">📸 Gallery</button>
+    </div>
+  </section>
+
+  <!-- Letter Page -->
+  <section id="letter" class="page">
+    <h2>A Letter for You 💌</h2>
+    <p>
+      My dearest love,  
+      Happy birthday! You make my world brighter every day.  
+      I’m so grateful for you, and I’ll keep loving you endlessly.  
+      💜🎂✨
+    </p>
+    <button class="back" onclick="showPage('home')">← Back</button>
+  </section>
+
+  <!-- Counter Page -->
+  <section id="counter" class="page">
+    <h2>Since We First Dated ⏳</h2>
+    <p id="timer"></p>
+    <p>...and counting 💜</p>
+    <button class="back" onclick="showPage('home')">← Back</button>
+  </section>
+
+  <!-- Gallery Page -->
+  <section id="gallery" class="page">
+    <h2>Our Memories 📸</h2>
+    <div class="gallery">
+      <img src="https://placekitten.com/300/200" alt="Memory 1" onclick="openModal(this)">
+      <img src="https://placekitten.com/301/200" alt="Memory 2" onclick="openModal(this)">
+      <img src="https://placekitten.com/302/200" alt="Memory 3" onclick="openModal(this)">
+    </div>
+    <button class="back" onclick="showPage('home')">← Back</button>
+  </section>
+
+  <!-- Modal for gallery -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img id="modalImg" class="modal-content">
+    <div id="caption"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
