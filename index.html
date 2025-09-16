@@ -11,93 +11,33 @@
       color: #4a375a;
       text-align: center;
     }
-    .page {
-      display: none;
-      padding: 40px 20px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .page.active {
-      display: block;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
+    .page { display: none; padding: 40px 20px; max-width: 700px; margin: 0 auto; }
+    .page.active { display: block; }
+    nav { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px; }
     .menu-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: pointer;
-      background: none;
-      border: none;
+      display: flex; flex-direction: column; align-items: center;
+      cursor: pointer; background: none; border: none;
     }
-    .menu-btn span {
-      font-size: 50px; /* emoji size */
-    }
-    .menu-btn p {
-      margin: 8px 0 0;
-      font-size: 16px;
-      font-weight: bold;
-    }
-    .menu-img {
-      max-width: 300px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-    }
+    .menu-btn span { font-size: 50px; }
+    .menu-btn p { margin: 8px 0 0; font-size: 16px; font-weight: bold; }
+    .menu-img { max-width: 300px; margin-bottom: 20px; border-radius: 12px; }
     .back-btn {
-      margin-top: 20px;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 12px;
-      background: #c8a2e0;
-      color: white;
-      cursor: pointer;
+      margin-top: 20px; padding: 12px 24px;
+      border: none; border-radius: 12px;
+      background: #c8a2e0; color: white; cursor: pointer;
     }
-    .counter {
-      font-size: 2em;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 15px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
+    .counter { font-size: 2em; margin-top: 20px; font-weight: bold; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+    .gallery img { width: 100%; border-radius: 12px; cursor: pointer; transition: 0.3s; }
+    .gallery img:hover { transform: scale(1.05); }
     .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
+      display: none; position: fixed; z-index: 1000;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.7); justify-content:center; align-items:center;
     }
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-    }
-    .modal.active {
-      display: flex;
-    }
-    .home-img {
-      max-width: 200px;
-      margin-bottom: 20px;
-    }
+    .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
+    .modal.active { display: flex; }
+    .home-img { max-width: 200px; margin-bottom: 20px; }
   </style>
 </head>
 <body>
@@ -107,16 +47,13 @@
     <h1>Happy Birthday, My Love 💜</h1>
     <nav>
       <button class="menu-btn" onclick="showPage('letter')">
-        <span>💌</span>
-        <p>Letter</p>
+        <span>💌</span><p>Letter</p>
       </button>
       <button class="menu-btn" onclick="showPage('counter')">
-        <span>⏳</span>
-        <p>Counter</p>
+        <span>⏳</span><p>Counter</p>
       </button>
       <button class="menu-btn" onclick="showPage('gallery')">
-        <span>📸</span>
-        <p>Gallery</p>
+        <span>📸</span><p>Gallery</p>
       </button>
     </nav>
   </div>
@@ -126,12 +63,11 @@
     <img src="https://via.placeholder.com/300x200?text=Letter+Image" alt="Letter" class="menu-img">
     <h2>A Letter for You</h2>
     <p>
-      My dearest Laruna,  
+      My dearest Laruna,<br>
       Happy Birthday! 💜 On this special day, I just want to remind you how much
-      you mean to me. Thank you for filling my life with love, laughter, and light.  
-      May this year bring you endless joy and dreams come true.  
+      you mean to me. Thank you for filling my life with love, laughter, and light.
       <br><br>
-      Forever yours,  
+      Forever yours,<br>
       [Your Name]
     </p>
     <button class="back-btn" onclick="showPage('home')">← Back</button>
@@ -147,4 +83,51 @@
   </div>
 
   <!-- Gallery Page -->
-  <div id="gallery" class="page"
+  <div id="gallery" class="page">
+    <img src="https://via.placeholder.com/300x200?text=Gallery+Image" alt="Gallery" class="menu-img">
+    <h2>Our Memories</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Memory+1" alt="Memory 1" onclick="openModal(this.src)">
+      <img src="https://via.placeholder.com/300x200?text=Memory+2" alt="Memory 2" onclick="openModal(this.src)">
+      <img src="https://via.placeholder.com/300x200?text=Memory+3" alt="Memory 3" onclick="openModal(this.src)">
+    </div>
+    <button class="back-btn" onclick="showPage('home')">← Back</button>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <img id="modalImg" src="" alt="Expanded view">
+  </div>
+
+  <script>
+    function showPage(id){
+      document.querySelectorAll(".page").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    // Counter
+    const startDate = new Date("2022-07-15T00:00:00"); // Change to your date
+    function updateCounter(){
+      const now = new Date();
+      const diff = now - startDate;
+      const days = Math.floor(diff/(1000*60*60*24));
+      const hours = Math.floor((diff/(1000*60*60))%24);
+      const minutes = Math.floor((diff/(1000*60))%60);
+      const seconds = Math.floor((diff/1000)%60);
+      document.getElementById("counterDisplay").textContent =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    setInterval(updateCounter, 1000);
+    updateCounter();
+
+    // Gallery modal
+    function openModal(src){
+      document.getElementById("modalImg").src = src;
+      document.getElementById("modal").classList.add("active");
+    }
+    function closeModal(){
+      document.getElementById("modal").classList.remove("active");
+    }
+  </script>
+</body>
+</html>
