@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <title>Laruna Day</title>
   <style>
     body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: #f8f4fb;
-      color: #4a375a;
-      text-align: center;
-    }
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f8f4fb;
+  color: #4a375a;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: 'Sacramento', cursive;
+}
     .page { display: none; padding: 40px 20px; max-width: 700px; margin: 0 auto; }
     .page.active { display: block; }
     nav { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px; }
@@ -64,6 +69,20 @@
 .heart-gallery img:nth-child(5) { top: 80px; left: 230px; }
 .heart-gallery img:nth-child(6) { top: 170px; left: 60px; }
 .heart-gallery img:nth-child(7) { top: 170px; left: 180px; }
+
+  .letter-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left; /* looks like a real letter */
+  padding: 20px;
+}
+
+.letter-content p {
+  font-family: 'Sacramento', cursive;
+  font-size: 22px;
+  line-height: 1.8;
+  white-space: pre-line; /* respects the line breaks */
+}
   </style>
 </head>
 <body>
@@ -84,26 +103,29 @@
     </nav>
   </div>
 
-  <!-- Letter Page -->
-  <div id="close" class="page">
-    <img src="https://i.pinimg.com/originals/b4/df/8d/b4df8da8defe7bc7ae65c390f1d2e08d.gif" alt="close to you" class="menu-img">
-    <h2>In Praise of Your Beginning</h2>
+<!-- Close to You Page -->
+<div id="close" class="page">
+  <img src="https://i.pinimg.com/originals/b4/df/8d/b4df8da8defe7bc7ae65c390f1d2e08d.gif" alt="close to you" class="menu-img">
+  <h2>In Praise of Your Beginning</h2>
+  <div class="letter-content">
     <p>
-      My dearest Laruna,<br>
-      
-      There are certain days the universe wraps in light, and today is one of them, the day you were born. Laruna, perempuan dengan tawa yang nyaring sekaligus diam yang menenangkan, hadir seperti jeda di tengah riuh, seperti teduh di tengah letih.
-      
-      Hari ini usiamu bertambah, but to me, your existence feels timeless, like a song that never fades. And no, time doesn’t really repeat itself, but your smile always does, it repeats in my head, every single day, and I never get tired of it. Kamu itu chaos in the best way, patience in the softest way, and love in the truest way.
-      
-      So here’s my prayer for you: semoga semesta selalu ngejaga kamu dengan cara paling lembut, semoga setiap langkahmu dipenuhi keberanian, semoga bahagiamu gak pernah punya ujung, dan semoga semua yang kamu semogakan akhirnya menemukan jalannya pulang.
-      
-      Happy birthday, smol bean. May every chapter after this be kinder, brighter, and always filled with love, mine, and the universe’s.
-      <br><br>
-      Forever yours,<br>
+      My dearest Laruna,  
+
+      There are certain days the universe wraps in light, and today is one of them, the day you were born. Laruna, perempuan dengan tawa yang nyaring sekaligus diam yang menenangkan, hadir seperti jeda di tengah riuh, seperti teduh di tengah letih.  
+
+      Hari ini usiamu bertambah, but to me, your existence feels timeless, like a song that never fades. And no, time doesn’t really repeat itself, but your smile always does, it repeats in my head, every single day, and I never get tired of it. Kamu itu chaos in the best way, patience in the softest way, and love in the truest way.  
+
+      So here’s my prayer for you: semoga semesta selalu ngejaga kamu dengan cara paling lembut, semoga setiap langkahmu dipenuhi keberanian, semoga bahagiamu gak pernah punya ujung, dan semoga semua yang kamu semogakan akhirnya menemukan jalannya pulang.  
+
+      Happy birthday, smol bean. May every chapter after this be kinder, brighter, and always filled with love, mine, and the universe’s.  
+
+      Forever yours,  
       Januar
     </p>
-    <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
+  <button class="back-btn" onclick="showPage('home')">← Back</button>
+</div>
+
 
   <!-- Counter Page -->
   <div id="love" class="page">
