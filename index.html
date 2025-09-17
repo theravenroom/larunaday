@@ -38,6 +38,32 @@
     .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
     .modal.active { display: flex; }
     .home-img { max-width: 200px; margin-bottom: 20px; }
+
+    .heart-gallery {
+  position: relative;
+  width: 350px;
+  height: 300px;
+  margin: 0 auto;
+}
+.heart-gallery img {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.heart-gallery img:hover { transform: scale(1.1); }
+
+/* positioning to form heart shape */
+.heart-gallery img:nth-child(1) { top: 10px; left: 60px; }
+.heart-gallery img:nth-child(2) { top: 10px; left: 180px; }
+.heart-gallery img:nth-child(3) { top: 80px; left: 10px; }
+.heart-gallery img:nth-child(4) { top: 80px; left: 120px; }
+.heart-gallery img:nth-child(5) { top: 80px; left: 230px; }
+.heart-gallery img:nth-child(6) { top: 170px; left: 60px; }
+.heart-gallery img:nth-child(7) { top: 170px; left: 180px; }
   </style>
 </head>
 <body>
@@ -88,17 +114,21 @@
     <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
 
-  <!-- Gallery Page -->
-  <div id="room" class="page">
-    <img src="https://i.pinimg.com/originals/e3/98/43/e39843e146b7631a1afcb715167a00a0.gif" alt="a room full of you" class="menu-img">
-    <h2>🌙</h2>
-    <div class="Gallery">
-      <img src="https://i.pinimg.com/originals/98/1a/8d/981a8d5c2a9db432257fd418f990261f.gif" alt="Memory 1" onclick="openModal(this.src)">
-      <img src="https://i.pinimg.com/1200x/ff/fd/fc/fffdfc16ffb5e08fa60c873034cf9278.jpg" alt="Memory 2" onclick="openModal(this.src)">
-      <img src="https://i.pinimg.com/1200x/ee/cd/fe/eecdfe430e7af636e43afe3125d773e0.jpg" alt="Memory 3" onclick="openModal(this.src)">
-    </div>
-    <button class="back-btn" onclick="showPage('home')">← Back</button>
+<!-- A Room Full of You Page -->
+<div id="room" class="page">
+  <img src="https://i.pinimg.com/originals/e3/98/43/e39843e146b7631a1afcb715167a00a0.gif" alt="Room" class="menu-img">
+  <h2>A Room Full of You</h2>
+  <div class="heart-gallery">
+    <img src="https://i.pinimg.com/474x/4f/44/32/4f44321c088e9766358b75004eb267b8.jpg" alt="Memory 1">
+    <img src="https://i.pinimg.com/474x/43/8d/82/438d820ce924874af8cd7d24df29ab98.jpg" alt="Memory 2">
+    <img src="https://i.pinimg.com/474x/5f/24/fe/5f24fe058de7dec68125eb64d6c4f360.jpg" alt="Memory 3">
+    <img src="https://i.pinimg.com/474x/b0/67/da/b067da154f1d901334e0601866e7c458.jpg" alt="Memory 4">
+    <img src="https://i.pinimg.com/736x/5e/92/cb/5e92cb336ac137f292447282af631c75.jpg" alt="Memory 5">
+    <img src="https://i.pinimg.com/736x/c8/62/b1/c862b1bbd3b6a435e92b29f3b952f9ad.jpg" alt="Memory 6">
+    <img src="https://i.pinimg.com/736x/93/7e/f0/937ef0f3656acd377f8e858b967ed90a.jpg" alt="Memory 7">
   </div>
+  <button class="back-btn" onclick="showPage('home')">← Back</button>
+</div>
 
   <!-- Modal -->
   <div id="modal" class="modal" onclick="closeModal()">
