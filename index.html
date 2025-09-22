@@ -108,6 +108,30 @@ h1, h2 {
   margin: 0 auto 20px;
   opacity: 0.85;
 }
+    .flipbook {
+  position: relative;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.flipbook img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+  transition: transform 0.6s;
+}
+
+.flip-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #c8a2e0;
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+}
   </style>
 </head>
 <body>
@@ -124,6 +148,9 @@ h1, h2 {
       </button>
       <button class="menu-btn" onclick="showPage('room')">
         <span>🐰</span><p>a room full of you</p>
+      </button>
+      <button class="menu-btn" onclick="showPage('flipbook')">
+        <span>📖</span><p>flipbook</p>
       </button>
     </nav>
   </div>
@@ -152,6 +179,18 @@ Januar
     </p>
   </div>
 
+  <button class="back-btn" onclick="showPage('home')">← Back</button>
+</div>
+
+  <div id="flipbook" class="page">
+  <h2>Our Little Flipbook</h2>
+  
+  <div class="flipbook">
+    <img id="flipImage" src="https://i.pinimg.com/originals/95/11/63/951163daabe73d7a0f7000f511033b27.gif" alt="Flip Page">
+    <p id="flipText">This is the first page of our story 💜</p>
+  </div>
+
+  <button onclick="nextPage()" class="flip-btn">Next →</button>
   <button class="back-btn" onclick="showPage('home')">← Back</button>
 </div>
 
@@ -214,6 +253,19 @@ Januar
     function closeModal(){
       document.getElementById("modal").classList.remove("active");
     }
+  const pages = [
+    { img: "https://i.pinimg.com/736x/b4/1d/14/b41d14c059852c52ac1631519fe2fbc5.jpg", text: "This is the first page of our story 💜" },
+    { img: "https://i.pinimg.com/736x/15/e1/07/15e10729511157baa95e74f9b4163213.jpg", text: "Every moment with you feels magical ✨" },
+    { img: "https://i.pinimg.com/1200x/08/41/44/08414412aeb21014e617fde6b974c184.jpg", text: "Happy Birthday, my love 🎂💖" }
+  ];
+  
+  let currentPage = 0;
+
+  function nextPage() {
+    currentPage = (currentPage + 1) % pages.length;
+    document.getElementById("flipImage").src = pages[currentPage].img;
+    document.getElementById("flipText").textContent = pages[currentPage].text;
+  }
   </script>
 </body>
 </html>
