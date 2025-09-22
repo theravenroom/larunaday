@@ -1,137 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <title>Laruna Day</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f8f4fb;
-  color: #4a375a;
-  text-align: center;
-}
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f8f4fb;
+      color: #4a375a;
+      text-align: center;
+    }
 
-h1, h2 {
-  font-family: 'Sacramento', cursive;
-}
-    .page { display: none; padding: 40px 20px; max-width: 700px; margin: 0 auto; }
+    h1, h2 {
+      font-family: 'Sacramento', cursive;
+    }
+
+    .page {
+      display: none;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
     .page.active { display: block; }
-    nav { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
     .menu-btn {
-      display: flex; flex-direction: column; align-items: center;
-      cursor: pointer; background: none; border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      background: none;
+      border: none;
     }
     .menu-btn span { font-size: 50px; }
     .menu-btn p { margin: 8px 0 0; font-size: 16px; font-weight: bold; }
     .menu-img { max-width: 300px; margin-bottom: 20px; border-radius: 12px; }
+
     .back-btn {
       margin-top: 20px; padding: 12px 24px;
       border: none; border-radius: 12px;
       background: #c8a2e0; color: white; cursor: pointer;
     }
-    .counter { font-size: 2em; margin-top: 20px; font-weight: bold; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
-    .gallery img { width: 100%; border-radius: 12px; cursor: pointer; transition: 0.3s; }
-    .gallery img:hover { transform: scale(1.05); }
-    .modal {
-      display: none; position: fixed; z-index: 1000;
-      top:0; left:0; width:100%; height:100%;
-      background: rgba(0,0,0,0.7); justify-content:center; align-items:center;
+
+    /* ---------- COUNTER ---------- */
+    .counter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
     }
-    .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
-    .modal.active { display: flex; }
-    .home-img { max-width: 200px; margin-bottom: 20px; }
 
+    .time-box {
+      text-align: center;
+      min-width: 70px;
+    }
+
+    .time-box span {
+      font-size: 48px;
+      font-weight: bold;
+      display: block;
+    }
+
+    .time-box p {
+      margin: 5px 0 0;
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    .divider {
+      font-size: 48px;
+      font-weight: bold;
+      color: #4a375a;
+      margin: 0 5px;
+    }
+
+    /* ---------- GALLERY HEART ---------- */
     .heart-gallery {
-  position: relative;
-  width: 350px;
-  height: 300px;
-  margin: 0 auto;
-}
-.heart-gallery img {
-  position: absolute;
-  width: 110px;  /* bigger */
-  height: 110px; /* bigger */
-  border-radius: 12px;
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-.heart-gallery img:hover { transform: scale(1.1); }
+      position: relative;
+      width: 350px;
+      height: 300px;
+      margin: 0 auto;
+    }
+    .heart-gallery img {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 12px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .heart-gallery img:hover { transform: scale(1.1); }
 
-/* positioning to form heart shape */
-.heart-gallery img:nth-child(1) { top: 10px; left: 60px; }
-.heart-gallery img:nth-child(2) { top: 10px; left: 180px; }
-.heart-gallery img:nth-child(3) { top: 80px; left: 10px; }
-.heart-gallery img:nth-child(4) { top: 80px; left: 120px; }
-.heart-gallery img:nth-child(5) { top: 80px; left: 230px; }
-.heart-gallery img:nth-child(6) { top: 170px; left: 60px; }
-.heart-gallery img:nth-child(7) { top: 170px; left: 180px; }
+    .heart-gallery img:nth-child(1) { top: 10px; left: 60px; }
+    .heart-gallery img:nth-child(2) { top: 10px; left: 180px; }
+    .heart-gallery img:nth-child(3) { top: 80px; left: 10px; }
+    .heart-gallery img:nth-child(4) { top: 80px; left: 120px; }
+    .heart-gallery img:nth-child(5) { top: 80px; left: 230px; }
+    .heart-gallery img:nth-child(6) { top: 170px; left: 60px; }
+    .heart-gallery img:nth-child(7) { top: 170px; left: 180px; }
 
-.letter-content {
-  max-width: 650px;
-  margin: 30px auto;
-  text-align: left;
-  padding: 30px;
-  background: #fffaf3; /* soft parchment color */
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 1px solid #e6d8c3;
-}
-.letter-content {
-  position: relative;
-  max-width: 650px;
-  margin: 30px auto;
-  text-align: left;
-  padding: 40px;
-  background: #fffaf3; /* soft parchment color */
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 1px solid #e6d8c3;
-  overflow: hidden;
-}
-.letter-content p {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 20px;
-  line-height: 2;
-  color: #3a2d28;
-  white-space: pre-line;
-  position: relative;
-  z-index: 1;
-}
+    /* ---------- LETTER ---------- */
+    .letter-content {
+      position: relative;
+      max-width: 650px;
+      margin: 30px auto;
+      text-align: left;
+      padding: 40px;
+      background: #fffaf3;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #e6d8c3;
+      overflow: hidden;
+    }
+    .letter-content p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 2;
+      color: #3a2d28;
+      white-space: pre-line;
+      position: relative;
+      z-index: 1;
+    }
+
     .flower-divider {
-  max-width: 180px;
-  display: block;
-  margin: 0 auto 20px;
-  opacity: 0.85;
-}
+      max-width: 180px;
+      display: block;
+      margin: 0 auto 20px;
+      opacity: 0.85;
+    }
+
+    /* ---------- FLIPBOOK ---------- */
     .flipbook {
-  position: relative;
-  max-width: 400px;
-  margin: 20px auto;
-  text-align: center;
-}
+      position: relative;
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: center;
+    }
 
-.flipbook img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  margin-bottom: 15px;
-  transition: transform 0.6s;
-}
+    .flipbook img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin-bottom: 15px;
+      transition: transform 0.6s;
+    }
 
-.flip-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 12px;
-  background: #c8a2e0;
-  color: white;
-  cursor: pointer;
-  margin-right: 10px;
-}
+    .flip-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #c8a2e0;
+      color: white;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      h1 { font-size: 28px; }
+      .menu-img { max-width: 200px; }
+      .time-box span { font-size: 36px; }
+      .divider { font-size: 36px; }
+      .letter-content { padding: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .page { padding: 20px 10px; }
+      h1 { font-size: 24px; }
+      .time-box span { font-size: 30px; }
+      .divider { font-size: 30px; }
+      .flipbook { max-width: 90%; }
+    }
   </style>
 </head>
 <body>
@@ -155,17 +208,13 @@ h1, h2 {
     </nav>
   </div>
 
-<!-- Close to You Page -->
-<div id="close" class="page">
-  <img src="https://i.pinimg.com/originals/b4/df/8d/b4df8da8defe7bc7ae65c390f1d2e08d.gif" alt="close to you" class="menu-img">
-
-  <!-- Flower divider -->
-  <img src="https://i.pinimg.com/736x/20/27/ee/2027eeb10dc37219789eb7b0bd4c3d1a.jpg" alt="flower divider" class="flower-divider">
-
-  <h2>In Praise of Your Beginning</h2>
-  
-  <div class="letter-content decorated">
-    <p>
+  <!-- Close to You Page -->
+  <div id="close" class="page">
+    <img src="https://i.pinimg.com/originals/b4/df/8d/b4df8da8defe7bc7ae65c390f1d2e08d.gif" alt="close to you" class="menu-img">
+    <img src="https://i.pinimg.com/736x/20/27/ee/2027eeb10dc37219789eb7b0bd4c3d1a.jpg" alt="flower divider" class="flower-divider">
+    <h2>In Praise of Your Beginning</h2>
+    <div class="letter-content">
+      <p>
 There are certain days the universe wraps in light, and today is one of them, the day you were born. Laruna, perempuan dengan tawa yang nyaring sekaligus diam yang menenangkan, hadir seperti jeda di tengah riuh, seperti teduh di tengah letih.
 
 Hari ini usiamu bertambah, but to me, your existence feels timeless, like a song that never fades. And no, time doesn’t really repeat itself, but your smile always does, it repeats in my head, every single day, and I never get tired of it. Kamu itu chaos in the best way, patience in the softest way, and love in the truest way. 
@@ -176,52 +225,53 @@ Happy birthday, smol bean. May every chapter after this be kinder, brighter, and
 
 Forever yours,  
 Januar
-    </p>
+      </p>
+    </div>
+    <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
 
-  <button class="back-btn" onclick="showPage('home')">← Back</button>
-</div>
-
+  <!-- Flipbook Page -->
   <div id="flipbook" class="page">
-  <h2>Our Little Flipbook</h2>
-  
-  <div class="flipbook">
-    <img id="flipImage" src="https://i.pinimg.com/originals/95/11/63/951163daabe73d7a0f7000f511033b27.gif" alt="Flip Page">
-    <p id="flipText">This is the first page of our story 💜</p>
+    <h2>Our Little Flipbook</h2>
+    <div class="flipbook">
+      <img id="flipImage" src="https://i.pinimg.com/originals/95/11/63/951163daabe73d7a0f7000f511033b27.gif" alt="Flip Page">
+      <p id="flipText">This is the first page of our story 💜</p>
+    </div>
+    <button onclick="nextPage()" class="flip-btn">Next →</button>
+    <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
 
-  <button onclick="nextPage()" class="flip-btn">Next →</button>
-  <button class="back-btn" onclick="showPage('home')">← Back</button>
-</div>
-
-  <!-- Counter Page -->
+  <!-- Loving You Counter Page -->
   <div id="love" class="page">
     <img src="https://i.pinimg.com/originals/1a/86/37/1a86370e1b2f29ff00061c42dc93b067.gif" alt="loving you" class="menu-img">
     <h2>Since We First Dated</h2>
-    <div class="counter" id="counterDisplay"></div>
+    <div class="counter">
+      <div class="time-box"><span id="days">0</span><p>Days</p></div>
+      <div class="divider">:</div>
+      <div class="time-box"><span id="hours">00</span><p>Hrs</p></div>
+      <div class="divider">:</div>
+      <div class="time-box"><span id="minutes">00</span><p>Mins</p></div>
+      <div class="divider">:</div>
+      <div class="time-box"><span id="seconds">00</span><p>Secs</p></div>
+    </div>
     <p>...and counting 💜</p>
     <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
 
-<!-- A Room Full of You Page -->
-<div id="room" class="page">
-  <img src="https://i.pinimg.com/originals/e3/98/43/e39843e146b7631a1afcb715167a00a0.gif" alt="Room" class="menu-img">
-  <h2>A Room Full of You</h2>
-  <div class="heart-gallery">
-    <img src="https://i.pinimg.com/474x/4f/44/32/4f44321c088e9766358b75004eb267b8.jpg" alt="Memory 1">
-    <img src="https://i.pinimg.com/474x/43/8d/82/438d820ce924874af8cd7d24df29ab98.jpg" alt="Memory 2">
-    <img src="https://i.pinimg.com/474x/5f/24/fe/5f24fe058de7dec68125eb64d6c4f360.jpg" alt="Memory 3">
-    <img src="https://i.pinimg.com/474x/b0/67/da/b067da154f1d901334e0601866e7c458.jpg" alt="Memory 4">
-    <img src="https://i.pinimg.com/736x/5e/92/cb/5e92cb336ac137f292447282af631c75.jpg" alt="Memory 5">
-    <img src="https://i.pinimg.com/736x/c8/62/b1/c862b1bbd3b6a435e92b29f3b952f9ad.jpg" alt="Memory 6">
-    <img src="https://i.pinimg.com/736x/93/7e/f0/937ef0f3656acd377f8e858b967ed90a.jpg" alt="Memory 7">
-  </div>
-  <button class="back-btn" onclick="showPage('home')">← Back</button>
-</div>
-
-  <!-- Modal -->
-  <div id="modal" class="modal" onclick="closeModal()">
-    <img id="modalImg" src="" alt="Expanded view">
+  <!-- A Room Full of You Page -->
+  <div id="room" class="page">
+    <img src="https://i.pinimg.com/originals/e3/98/43/e39843e146b7631a1afcb715167a00a0.gif" alt="Room" class="menu-img">
+    <h2>A Room Full of You</h2>
+    <div class="heart-gallery">
+      <img src="https://i.pinimg.com/474x/4f/44/32/4f44321c088e9766358b75004eb267b8.jpg" alt="Memory 1">
+      <img src="https://i.pinimg.com/474x/43/8d/82/438d820ce924874af8cd7d24df29ab98.jpg" alt="Memory 2">
+      <img src="https://i.pinimg.com/474x/5f/24/fe/5f24fe058de7dec68125eb64d6c4f360.jpg" alt="Memory 3">
+      <img src="https://i.pinimg.com/474x/b0/67/da/b067da154f1d901334e0601866e7c458.jpg" alt="Memory 4">
+      <img src="https://i.pinimg.com/736x/5e/92/cb/5e92cb336ac137f292447282af631c75.jpg" alt="Memory 5">
+      <img src="https://i.pinimg.com/736x/c8/62/b1/c862b1bbd3b6a435e92b29f3b952f9ad.jpg" alt="Memory 6">
+      <img src="https://i.pinimg.com/736x/93/7e/f0/937ef0f3656acd377f8e858b967ed90a.jpg" alt="Memory 7">
+    </div>
+    <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
 
   <script>
@@ -239,35 +289,31 @@ Januar
       const hours = Math.floor((diff/(1000*60*60))%24);
       const minutes = Math.floor((diff/(1000*60))%60);
       const seconds = Math.floor((diff/1000)%60);
-      document.getElementById("counterDisplay").textContent =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
     }
     setInterval(updateCounter, 1000);
     updateCounter();
 
-    // Gallery modal
-    function openModal(src){
-      document.getElementById("modalImg").src = src;
-      document.getElementById("modal").classList.add("active");
-    }
-    function closeModal(){
-      document.getElementById("modal").classList.remove("active");
-    }
-  const pages = [
-    { img: "https://i.pinimg.com/originals/3f/36/b8/3f36b8c02cc9fbd838499e09ce3e907c.gif" },
-    { img: "https://i.pinimg.com/736x/93/73/19/9373196f962ef727f33aa818786e04bf.jpg" },
-    { img: "https://i.pinimg.com/736x/00/9b/02/009b02926b59d506f8d4d179667ee04d.jpg" }
-    { img: "https://i.pinimg.com/originals/1a/c6/37/1ac6378fbfb6b8749a9ff15b796dd536.gif" },
-    { img: "https://i.pinimg.com/1200x/4c/f4/1b/4cf41b3aa7f3e3f87d1fa5c2cbcac8ec.jpg" },
-  ];
-  
-  let currentPage = 0;
+    // Flipbook
+    const pages = [
+      { img: "https://i.pinimg.com/originals/3f/36/b8/3f36b8c02cc9fbd838499e09ce3e907c.gif", text: "Our story starts with this smile 💜" },
+      { img: "https://i.pinimg.com/736x/93/73/19/9373196f962ef727f33aa818786e04bf.jpg", text: "Every moment feels like a dream 🌸" },
+      { img: "https://i.pinimg.com/736x/00/9b/02/009b02926b59d506f8d4d179667ee04d.jpg", text: "You are my calm in chaos 🕊" },
+      { img: "https://i.pinimg.com/originals/1a/c6/37/1ac6378fbfb6b8749a9ff15b796dd536.gif", text: "Our laughter is my favorite song 🎶" },
+      { img: "https://i.pinimg.com/1200x/4c/f4/1b/4cf41b3aa7f3e3f87d1fa5c2cbcac8ec.jpg", text: "And I’ll keep writing our story forever 💌" }
+    ];
 
-  function nextPage() {
-    currentPage = (currentPage + 1) % pages.length;
-    document.getElementById("flipImage").src = pages[currentPage].img;
-    document.getElementById("flipText").textContent = pages[currentPage].text;
-  }
+    let currentPage = 0;
+
+    function nextPage() {
+      currentPage = (currentPage + 1) % pages.length;
+      document.getElementById("flipImage").src = pages[currentPage].img;
+      document.getElementById("flipText").textContent = pages[currentPage].text;
+    }
   </script>
 </body>
 </html>
