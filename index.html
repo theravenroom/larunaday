@@ -88,6 +88,29 @@ h1, h2 {
   color: #3a2d28;
   white-space: pre-line;
 }
+    .decorated {
+  position: relative;
+  background: #fffaf3;
+  border-radius: 15px;
+  padding: 40px;
+  border: 1px solid #e6d8c3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.decorated::before,
+.decorated::after {
+  content: url('https://i.ibb.co/VC1Ct4q/flower-corner.png');
+  position: absolute;
+  width: 60px;
+  height: 60px;
+}
+.decorated::before {
+  top: 10px;
+  left: 10px;
+}
+.decorated::after {
+  bottom: 10px;
+  right: 10px;
+}
   </style>
 </head>
 <body>
@@ -113,7 +136,7 @@ h1, h2 {
   <img src="https://i.pinimg.com/originals/b4/df/8d/b4df8da8defe7bc7ae65c390f1d2e08d.gif" alt="close to you" class="menu-img">
   <h2>In Praise of Your Beginning</h2>
   
-  <div class="letter-content">
+  <div class="letter-content decorated">
     <p>
 There are certain days the universe wraps in light, and today is one of them, the day you were born. Laruna, perempuan dengan tawa yang nyaring sekaligus diam yang menenangkan, hadir seperti jeda di tengah riuh, seperti teduh di tengah letih.
 
