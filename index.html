@@ -80,6 +80,18 @@ h1, h2 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border: 1px solid #e6d8c3;
 }
+.letter-content {
+  position: relative;
+  max-width: 650px;
+  margin: 30px auto;
+  text-align: left;
+  padding: 40px;
+  background: #fffaf3; /* soft parchment color */
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e6d8c3;
+  overflow: hidden;
+}
 .letter-content p {
   font-family: 'Playfair Display', serif;
   font-style: italic;
@@ -87,27 +99,26 @@ h1, h2 {
   line-height: 2;
   color: #3a2d28;
   white-space: pre-line;
-}
-    .decorated {
   position: relative;
-  background: #fffaf3;
-  border-radius: 15px;
-  padding: 40px;
-  border: 1px solid #e6d8c3;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1;
 }
-.decorated::before,
-.decorated::after {
+
+/* corner flower decorations */
+.letter-content::before,
+.letter-content::after {
   content: url('https://i.ibb.co/VC1Ct4q/flower-corner.png');
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.6;
 }
-.decorated::before {
+
+.letter-content::before {
   top: 10px;
   left: 10px;
 }
-.decorated::after {
+
+.letter-content::after {
   bottom: 10px;
   right: 10px;
 }
