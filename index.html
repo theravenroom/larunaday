@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <title>Laruna Day</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -17,76 +17,66 @@
       font-family: 'Sacramento', cursive;
     }
 
-    .page {
-      display: none;
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
+    .page { display: none; padding: 40px 20px; max-width: 900px; margin: 0 auto; }
     .page.active { display: block; }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
+    nav { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px; }
     .menu-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      cursor: pointer;
-      background: none;
-      border: none;
+      display: flex; flex-direction: column; align-items: center;
+      cursor: pointer; background: none; border: none;
     }
     .menu-btn span { font-size: 50px; }
     .menu-btn p { margin: 8px 0 0; font-size: 16px; font-weight: bold; }
     .menu-img { max-width: 300px; margin-bottom: 20px; border-radius: 12px; }
-
     .back-btn {
       margin-top: 20px; padding: 12px 24px;
       border: none; border-radius: 12px;
       background: #c8a2e0; color: white; cursor: pointer;
     }
 
-    /* ---------- COUNTER ---------- */
+    /* Counter */
     .counter {
       display: flex;
       justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
       gap: 15px;
+      font-size: 2em;
       margin-top: 20px;
-    }
-
-    .time-box {
-      text-align: center;
-      min-width: 70px;
-    }
-
-    .time-box span {
-      font-size: 48px;
       font-weight: bold;
-      display: block;
+      flex-wrap: wrap;
     }
-
-    .time-box p {
-      margin: 5px 0 0;
-      font-size: 16px;
-      font-style: italic;
+    .counter div {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
     }
-
-    .divider {
-      font-size: 48px;
-      font-weight: bold;
-      color: #4a375a;
+    .counter span.value {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #3a2d28;
+    }
+    .counter span.label {
+      font-size: 0.6em;
+      color: #7a6a64;
+    }
+    .colon {
+      font-size: 1.5em;
       margin: 0 5px;
+      color: #c8a2e0;
     }
 
-    /* ---------- GALLERY HEART ---------- */
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+    .gallery img { width: 100%; border-radius: 12px; cursor: pointer; transition: 0.3s; }
+    .gallery img:hover { transform: scale(1.05); }
+    .modal {
+      display: none; position: fixed; z-index: 1000;
+      top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.7); justify-content:center; align-items:center;
+    }
+    .modal img { max-width: 90%; max-height: 90%; border-radius: 12px; }
+    .modal.active { display: flex; }
+    .home-img { max-width: 200px; margin-bottom: 20px; }
+
+    /* Heart Gallery */
     .heart-gallery {
       position: relative;
       width: 350px;
@@ -112,10 +102,9 @@
     .heart-gallery img:nth-child(6) { top: 170px; left: 60px; }
     .heart-gallery img:nth-child(7) { top: 170px; left: 180px; }
 
-    /* ---------- LETTER ---------- */
+    /* Letter */
     .letter-content {
-      position: relative;
-      max-width: 650px;
+      max-width: 700px;
       margin: 30px auto;
       text-align: left;
       padding: 40px;
@@ -123,42 +112,35 @@
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       border: 1px solid #e6d8c3;
-      overflow: hidden;
     }
     .letter-content p {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 20px;
+      font-size: 22px;
       line-height: 2;
       color: #3a2d28;
       white-space: pre-line;
-      position: relative;
-      z-index: 1;
     }
 
-    .flower-divider {
-      max-width: 180px;
-      display: block;
-      margin: 0 auto 20px;
-      opacity: 0.85;
-    }
-
-    /* ---------- FLIPBOOK ---------- */
+    /* Flipbook */
     .flipbook {
       position: relative;
       max-width: 400px;
       margin: 20px auto;
       text-align: center;
     }
-
     .flipbook img {
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       margin-bottom: 15px;
-      transition: transform 0.6s;
+      opacity: 1;
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
+    .flipbook.fade img {
+      opacity: 0;
+      transform: translateX(30px);
+    }
     .flip-btn {
       padding: 10px 20px;
       border: none;
@@ -169,21 +151,12 @@
       margin-right: 10px;
     }
 
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px) {
-      h1 { font-size: 28px; }
-      .menu-img { max-width: 200px; }
-      .time-box span { font-size: 36px; }
-      .divider { font-size: 36px; }
-      .letter-content { padding: 20px; }
-    }
-
-    @media (max-width: 480px) {
-      .page { padding: 20px 10px; }
-      h1 { font-size: 24px; }
-      .time-box span { font-size: 30px; }
-      .divider { font-size: 30px; }
-      .flipbook { max-width: 90%; }
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      h1 { font-size: 1.8em; }
+      .letter-content { padding: 20px; font-size: 18px; }
+      .counter { font-size: 1.2em; gap: 8px; }
     }
   </style>
 </head>
@@ -193,25 +166,16 @@
     <img src="https://i.pinimg.com/originals/17/b2/17/17b217f6f092e303d6f5b5eb04eee7ed.gif" alt="Birthday Image" class="home-img">
     <h1>On the Day the Universe Made You 💜</h1>
     <nav>
-      <button class="menu-btn" onclick="showPage('close')">
-        <span>💌</span><p>close to you</p>
-      </button>
-      <button class="menu-btn" onclick="showPage('love')">
-        <span>🌸</span><p>loving you</p>
-      </button>
-      <button class="menu-btn" onclick="showPage('room')">
-        <span>🐰</span><p>a room full of you</p>
-      </button>
-      <button class="menu-btn" onclick="showPage('flipbook')">
-        <span>📖</span><p>flipbook</p>
-      </button>
+      <button class="menu-btn" onclick="showPage('close')"><span>💌</span><p>close to you</p></button>
+      <button class="menu-btn" onclick="showPage('love')"><span>🌸</span><p>loving you</p></button>
+      <button class="menu-btn" onclick="showPage('room')"><span>🐰</span><p>a room full of you</p></button>
+      <button class="menu-btn" onclick="showPage('flipbook')"><span>📖</span><p>flipbook</p></button>
     </nav>
   </div>
 
   <!-- Close to You Page -->
   <div id="close" class="page">
     <img src="https://i.pinimg.com/originals/b4/df/8d/b4df8da8defe7bc7ae65c390f1d2e08d.gif" alt="close to you" class="menu-img">
-    <img src="https://i.pinimg.com/736x/20/27/ee/2027eeb10dc37219789eb7b0bd4c3d1a.jpg" alt="flower divider" class="flower-divider">
     <h2>In Praise of Your Beginning</h2>
     <div class="letter-content">
       <p>
@@ -230,30 +194,11 @@ Januar
     <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
 
-  <!-- Flipbook Page -->
-  <div id="flipbook" class="page">
-    <h2>Our Little Flipbook</h2>
-    <div class="flipbook">
-      <img id="flipImage" src="https://i.pinimg.com/originals/95/11/63/951163daabe73d7a0f7000f511033b27.gif" alt="Flip Page">
-      <p id="flipText">This is the first page of our story 💜</p>
-    </div>
-    <button onclick="nextPage()" class="flip-btn">Next →</button>
-    <button class="back-btn" onclick="showPage('home')">← Back</button>
-  </div>
-
-  <!-- Loving You Counter Page -->
+  <!-- Counter Page -->
   <div id="love" class="page">
     <img src="https://i.pinimg.com/originals/1a/86/37/1a86370e1b2f29ff00061c42dc93b067.gif" alt="loving you" class="menu-img">
     <h2>Since We First Dated</h2>
-    <div class="counter">
-      <div class="time-box"><span id="days">0</span><p>Days</p></div>
-      <div class="divider">:</div>
-      <div class="time-box"><span id="hours">00</span><p>Hrs</p></div>
-      <div class="divider">:</div>
-      <div class="time-box"><span id="minutes">00</span><p>Mins</p></div>
-      <div class="divider">:</div>
-      <div class="time-box"><span id="seconds">00</span><p>Secs</p></div>
-    </div>
+    <div class="counter" id="counterDisplay"></div>
     <p>...and counting 💜</p>
     <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
@@ -274,6 +219,22 @@ Januar
     <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
 
+  <!-- Flipbook Page -->
+  <div id="flipbook" class="page">
+    <h2>Our Little Flipbook</h2>
+    <div class="flipbook" id="flipbookBox">
+      <img id="flipImage" src="https://i.pinimg.com/originals/95/11/63/951163daabe73d7a0f7000f511033b27.gif" alt="Flip Page">
+      <p id="flipText">This is the first page of our story 💜</p>
+    </div>
+    <button onclick="nextPage()" class="flip-btn">Next →</button>
+    <button class="back-btn" onclick="showPage('home')">← Back</button>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <img id="modalImg" src="" alt="Expanded view">
+  </div>
+
   <script>
     function showPage(id){
       document.querySelectorAll(".page").forEach(sec => sec.classList.remove("active"));
@@ -281,7 +242,7 @@ Januar
     }
 
     // Counter
-    const startDate = new Date("2024-09-13T00:00:00"); // Change to your date
+    const startDate = new Date("2024-09-13T00:00:00");
     function updateCounter(){
       const now = new Date();
       const diff = now - startDate;
@@ -290,29 +251,47 @@ Januar
       const minutes = Math.floor((diff/(1000*60))%60);
       const seconds = Math.floor((diff/1000)%60);
 
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+      document.getElementById("counterDisplay").innerHTML = `
+        <div><span class="value">${days}</span><span class="label">days</span></div>
+        <span class="colon">:</span>
+        <div><span class="value">${hours}</span><span class="label">hours</span></div>
+        <span class="colon">:</span>
+        <div><span class="value">${minutes}</span><span class="label">min</span></div>
+        <span class="colon">:</span>
+        <div><span class="value">${seconds}</span><span class="label">sec</span></div>
+      `;
     }
     setInterval(updateCounter, 1000);
     updateCounter();
 
+    // Gallery modal
+    function openModal(src){
+      document.getElementById("modalImg").src = src;
+      document.getElementById("modal").classList.add("active");
+    }
+    function closeModal(){
+      document.getElementById("modal").classList.remove("active");
+    }
+
     // Flipbook
     const pages = [
-      { img: "https://i.pinimg.com/originals/3f/36/b8/3f36b8c02cc9fbd838499e09ce3e907c.gif", text: "Our story starts with this smile 💜" },
-      { img: "https://i.pinimg.com/736x/93/73/19/9373196f962ef727f33aa818786e04bf.jpg", text: "Every moment feels like a dream 🌸" },
-      { img: "https://i.pinimg.com/736x/00/9b/02/009b02926b59d506f8d4d179667ee04d.jpg", text: "You are my calm in chaos 🕊" },
-      { img: "https://i.pinimg.com/originals/1a/c6/37/1ac6378fbfb6b8749a9ff15b796dd536.gif", text: "Our laughter is my favorite song 🎶" },
-      { img: "https://i.pinimg.com/1200x/4c/f4/1b/4cf41b3aa7f3e3f87d1fa5c2cbcac8ec.jpg", text: "And I’ll keep writing our story forever 💌" }
+      { img: "https://i.pinimg.com/originals/3f/36/b8/3f36b8c02cc9fbd838499e09ce3e907c.gif", text: "A day I’ll never forget 💜" },
+      { img: "https://i.pinimg.com/736x/93/73/19/9373196f962ef727f33aa818786e04bf.jpg", text: "Every smile feels like home 🌸" },
+      { img: "https://i.pinimg.com/736x/00/9b/02/009b02926b59d506f8d4d179667ee04d.jpg", text: "Even in silence, we speak 🐰" },
+      { img: "https://i.pinimg.com/originals/1a/c6/37/1ac6378fbfb6b8749a9ff15b796dd536.gif", text: "With you, time softens ⏳" },
+      { img: "https://i.pinimg.com/1200x/4c/f4/1b/4cf41b3aa7f3e3f87d1fa5c2cbcac8ec.jpg", text: "Forever isn’t long enough 💫" }
     ];
 
     let currentPage = 0;
-
     function nextPage() {
-      currentPage = (currentPage + 1) % pages.length;
-      document.getElementById("flipImage").src = pages[currentPage].img;
-      document.getElementById("flipText").textContent = pages[currentPage].text;
+      const flipbookBox = document.getElementById("flipbookBox");
+      flipbookBox.classList.add("fade");
+      setTimeout(() => {
+        currentPage = (currentPage + 1) % pages.length;
+        document.getElementById("flipImage").src = pages[currentPage].img;
+        document.getElementById("flipText").textContent = pages[currentPage].text;
+        flipbookBox.classList.remove("fade");
+      }, 600);
     }
   </script>
 </body>
