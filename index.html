@@ -190,16 +190,29 @@ Januar
     </div>
     <button class="back-btn" onclick="showPage('home')">← Back</button>
   </div>
+ <!-- Flipbook Section -->
+<div id="flipbook" class="page">
+  <div class="flip-container">
+    <div class="flip-page active">
+      <p>
+        📖✨ Once upon a time… <br><br>
 
-  <!-- Flipbook Page -->
-  <div id="flipbook" class="page">
-    <h2>Our Little Flipbook</h2>
-    <div class="flipbook">
-      <img id="flipImage" src="https://i.pinimg.com/originals/95/11/63/951163daabe73d7a0f7000f511033b27.gif" alt="Flip Page">
-      <p id="flipText">This is the first page of our story 💜</p>
+        There was a pretty girl with the prettiest gummy smile 🌸 and somewhere nearby,  
+        a grumpy black cat who didn’t believe in magic… until he met her. 🐈‍⬛💖  
+        Day by day, the black cat found himself falling, not for the stars,  
+        not for the moon, but for her laughter, her warmth, her light. 🌙⭐  
+        <br><br>
+        And so, the black cat has a little message for her…  
+        <br>click to turn the page 🐾💌
+      </p>
     </div>
-    <button onclick="nextPage()" class="flip-btn">Next →</button>
-    <button class="back-btn" onclick="showPage('home')">← Back</button>
+
+    <div class="flip-page">
+      <img src="your-second-image.jpg" alt="Second page">
+    </div>
+    <!-- add more flip pages as needed -->
+  </div>
+  <button class="back-btn" onclick="showPage('home')">Back</button>
   </div>
 
   <!-- Counter Page -->
@@ -269,11 +282,11 @@ Januar
 
     // Flipbook
     const pages = [
-      { img: "https://i.pinimg.com/originals/3f/36/b8/3f36b8c02cc9fbd838499e09ce3e907c.gif", text: "Our laughter always on repeat 💜" },
-      { img: "https://i.pinimg.com/736x/93/73/19/9373196f962ef727f33aa818786e04bf.jpg", text: "Every moment feels like magic ✨" },
-      { img: "https://i.pinimg.com/736x/00/9b/02/009b02926b59d506f8d4d179667ee04d.jpg", text: "You are my calm and my chaos 🌸" },
-      { img: "https://i.pinimg.com/originals/1a/c6/37/1ac6378fbfb6b8749a9ff15b796dd536.gif", text: "Forever isn’t long enough with you 💫" },
-      { img: "https://i.pinimg.com/1200x/4c/f4/1b/4cf41b3aa7f3e3f87d1fa5c2cbcac8ec.jpg", text: "This story is ours, always 💜" },
+      { img: "https://i.pinimg.com/originals/3f/36/b8/3f36b8c02cc9fbd838499e09ce3e907c.gif", text: "📦🐈 Surprise! All my love, wrapped up and sent to you 💌" },
+      { img: "https://i.pinimg.com/736x/93/73/19/9373196f962ef727f33aa818786e04bf.jpg", text: "Because that smile is my favorite thing in the world 💜😺" },
+      { img: "https://i.pinimg.com/736x/00/9b/02/009b02926b59d506f8d4d179667ee04d.jpg", text: "Big cat loves his smol bean endlessly 😽🐾" },
+      { img: "https://i.pinimg.com/originals/1a/c6/37/1ac6378fbfb6b8749a9ff15b796dd536.gif", text: "Even when you’re sleepy, messy, or silly 😺💤" },
+      { img: "https://i.pinimg.com/1200x/4c/f4/1b/4cf41b3aa7f3e3f87d1fa5c2cbcac8ec.jpg", text: "🤍 Isn’t she wonderful? 🤍" },
     ];
     let currentPage = 0;
     function nextPage() {
